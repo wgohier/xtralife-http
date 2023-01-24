@@ -1,3 +1,4 @@
+compression = require 'compression'
 express = require 'express'
 util = require 'util'
 http = require 'http'
@@ -12,8 +13,13 @@ _ = require "underscore"
 
 env = if process.env.NODE_ENV? then process.env.NODE_ENV else "dev"
 
+shouldCompress = (req, res) -> 
+	if req.headers['x-no-compression']? then return false
+	return compression.filter(req, res)
 
 app = express()
+
+app.use(compression({ filter: shouldCompress }))
 
 app.use bodyParser.json({strict : false, limit: (xlenv.http.bodySizeLimit or '500kb')})
 
