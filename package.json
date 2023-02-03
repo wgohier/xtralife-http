@@ -28,7 +28,6 @@
     "body": "*",
     "body-parser": "*",
     "check-types": "*",
-    "compression": "^1.7.4",
     "cors": "*",
     "express": "*",
     "jayschema": "*",
