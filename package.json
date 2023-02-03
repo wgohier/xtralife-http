@@ -28,8 +28,8 @@
     "body": "*",
     "body-parser": "*",
     "check-types": "*",
+    "compression": "^1.7.4",
     "cors": "*",
-    "xtralife-api": "<3.3",
     "express": "*",
     "jayschema": "*",
     "lru-cache": "*",
@@ -37,7 +37,8 @@
     "node-uuid": "*",
     "randomstring": "*",
     "redlock": "<2",
-    "underscore": "*"
+    "underscore": "*",
+    "xtralife-api": "<3.3"
   },
   "devDependencies": {
     "async": "*",
