@@ -9,6 +9,7 @@ middleware = require './middleware.coffee'
 Q = require 'bluebird'
 cors = require 'cors'
 _ = require "underscore"
+compression = require('compression');
 
 env = if process.env.NODE_ENV? then process.env.NODE_ENV else "dev"
 
@@ -16,6 +17,8 @@ env = if process.env.NODE_ENV? then process.env.NODE_ENV else "dev"
 app = express()
 
 app.use bodyParser.json({strict : false, limit: (xlenv.http.bodySizeLimit or '500kb')})
+
+app.use compression()
 
 app.use middleware.requestLogger
 
